@@ -61,8 +61,11 @@ p {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+.right p {
+  font-size: 0.6em;
+}
 input, textarea {
-  font-size: 0.5em;
+  font-size: 0.4em;
   padding: 0.25em;
   width: 20vw;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
