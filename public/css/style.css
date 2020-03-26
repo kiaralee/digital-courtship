@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Baloo+2:400,700&display=swap');
+
+html {
+  font-size: 2vw;
+}
+.container {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.block {
+  padding: 0.5em;
+  background-color: #fff;
+  color: #37393B;
+  height: 100vh;
+  overflow-y: hidden;
+}
+.left {
+  flex: 0 0 60%;
+  justify-content: center;
+  align-items: center;
+}
+.right {
+  flex: 1;
+  background-color: #37393B;
+  color: #fff;
+}
+
+.center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+body {
+  background-color: #202529;
+  color: #202529;
+  font-size: 1.25em;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+h3 {
+  font-family: 'Baloo 2', cursive;
+  text-transform: lowercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1em;
+}
+p {
+  font-size: 0.8em;
+  text-transform: lowercase;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+input, textarea {
+  font-size: 0.5em;
+  padding: 0.25em;
+  width: 20vw;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+}
+input {
+  margin-bottom: 1em;
+}
+textarea {
+  resize: none;
+  height: 20vh;
+}
+input:focus, textarea:focus {
+  outline-color: #73B5D3;
+}
+.right button {
+  height: 5vh;
+  width: 20vw;
+  font-size: 0.5em;
+  outline: 0;
+  border: 2px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+  letter-spacing: 0.25em;
+}
+.right button:hover, button:focus {
+  opacity: 0.8;
+}

@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>digital courtship</title>
+  <meta name="description" content="date generator for the digital age">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+      <div class="block left">
+        <div class="center">
+          <div>
+            <h3 id="dateTitle">Title</h3>
+            <br>
+            <p id="dateDes">Description</p>
+            <br>
+            <button type="button" onclick="randActivity()">generate date</button>
+          </div>
+        </div>
+      </div>
+      <div class="block right">
+        <div class="center">
+          <div>
+            <h3>add a date</h3>
+            <p>date title</p>
+            <input type="title" id="title" name="title">
+            <br>
+            <p>description / extra info</p>
+            <textarea id="des"></textarea>
+            <br><br>
+            <button type="button" onclick="addData()">add date</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBO19FyCA0xL022q3d-T8y6PlLWC8JtRVc",
+      authDomain: "digital-courtship.firebaseapp.com",
+      databaseURL: "https://digital-courtship.firebaseio.com",
+      projectId: "digital-courtship",
+      storageBucket: "digital-courtship.appspot.com",
+      messagingSenderId: "640848249367",
+      appId: "1:640848249367:web:73fcc13a74ebb62be35252",
+      measurementId: "G-E6B6172B9P"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    var rootRef = firebase.database().ref();
+    var activitiesRef = firebase.database().ref("activities/");
+
+
+    // class Activity holding data retrieved from firebase
+    class Activity{
+      constructor(title, description) {
+        this.title = title;
+        this.description = description;
+      }
+    }
+
+    // fills an array of all activities in the database
+    var all = [];
+    var i = 0;
+    var query = firebase.database().ref("activities").orderByKey();
+    query.once("value")
+      .then(function(snapshot) {
+        snapshot.forEach(function(childSnapshot) {
+          var a = childSnapshot.key;
+          var childData = childSnapshot.val();
+          var current = new Activity(childData.title, childData.description);
+          all[i] = current;
+          i++;
+      });
+    });
+
+    // displays a random activity
+    function randActivity() {
+      var r = Math.floor(Math.random() * all.length);
+      document.getElementById("dateTitle").innerHTML = all[r].title;
+      document.getElementById("dateDes").innerHTML = all[r].description;
+    }
+
+    // add a new activity to the database
+    function addData() {
+      let t = document.getElementById("title").value;
+      let d = document.getElementById("des").value;
+      if (t == "" | d == "") {
+        alert("Error: Please enter valid data.");
+      } else {
+        firebase.database().ref('activities/').push({
+          title: t,
+          description: d
+        });
+        d = "";
+        t = "";
+      }
+    }
+
+  </script>
+
+
+
+</body>
+</html>
