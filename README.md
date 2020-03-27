@@ -5,7 +5,7 @@ maintaining and adapting your relationship and dating while self-isolating due t
 
 users can add and randomly generate a date from the database.
 
-![digital courtship](https://raw.githubusercontent.com/kiaralee/digital-courtship/master/images/courtship-add.png)
+![digital courtship](https://raw.githubusercontent.com/kiaralee/digital-courtship/master/images/courtship-generate.png)
 
 ---
 
