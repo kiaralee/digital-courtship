@@ -1,7 +1,7 @@
 # digital-courtship
 <b>a date generator for the digital age.</b>
 
-maintaining and adapting your relationship and dating while self-isolating due to covid-19 is tricky. digital courtship is a web app designed to solve that problem.
+maintaining and adapting your relationship and dating while self-isolating due to covid-19 is tricky. digital courtship is a web app designed to help solve that problem.
 
 users can add and randomly generate a date from the database.
 
