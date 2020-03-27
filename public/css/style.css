@@ -23,7 +23,7 @@ html {
   overflow-y: hidden;
 }
 .left {
-  flex: 0 0 60%;
+  flex: 0 0 70%;
   justify-content: center;
   align-items: center;
 }
@@ -49,20 +49,20 @@ body {
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
 }
-h3 {
+h3, h2 {
   font-family: 'Baloo 2', cursive;
   text-transform: lowercase;
   letter-spacing: 0.15em;
   margin-bottom: 1em;
 }
 p {
-  font-size: 0.8em;
+  font-size: 0.6em;
   text-transform: lowercase;
   margin-top: 1em;
   margin-bottom: 1em;
 }
-.right p {
-  font-size: 0.6em;
+.left p {
+  margin-top: 0.1em;
 }
 input, textarea {
   font-size: 0.4em;
@@ -71,6 +71,9 @@ input, textarea {
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;
+  box-shadow: none;
+  outline: none;
+  border: none;
 }
 input {
   margin-bottom: 1em;
@@ -80,9 +83,9 @@ textarea {
   height: 20vh;
 }
 input:focus, textarea:focus {
-  outline-color: #73B5D3;
+  outline: 2px solid #73B5D3;
 }
-.right button {
+button {
   height: 5vh;
   width: 20vw;
   font-size: 0.5em;
@@ -93,6 +96,10 @@ input:focus, textarea:focus {
   color: #fff;
   letter-spacing: 0.25em;
 }
-.right button:hover, button:focus {
-  opacity: 0.8;
+button:hover, button:focus {
+  opacity: 0.75;
+}
+.left button {
+  color: #202529;
+  border-color: #202529;
 }
