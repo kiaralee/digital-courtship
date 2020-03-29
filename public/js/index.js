@@ -18,9 +18,10 @@ var activitiesRef = firebase.database().ref("activities/");
 
 // class Activity holding data retrieved from firebase
 class Activity{
-  constructor(title, description) {
+  constructor(title, description, keyword) {
     this.title = title;
     this.description = description;
+    this.keyword = keyword;
   }
 }
 
@@ -33,21 +34,27 @@ query.once("value")
     snapshot.forEach(function(childSnapshot) {
       var a = childSnapshot.key;
       var childData = childSnapshot.val();
-      var current = new Activity(childData.title, childData.description);
+      var current = new Activity(childData.title, childData.description, a);
       all[i] = current;
       i++;
   });
 });
 
+var currentKeyword = "";
 // displays a random activity
 function randActivity() {
   var r = Math.floor(Math.random() * all.length);
+  var del = document.getElementById("delete");
+  currentKeyword = all[r].keyword;
   $('#dateTitle').animate({'opacity': 0}, 1500, function () {
     $(this).html(all[r].title);
   }).animate({'opacity': 1}, 1500);
   $('#dateDes').animate({'opacity': 0}, 1500, function () {
     $(this).html(all[r].description);
   }).animate({'opacity': 1}, 1500);
+  if (!del.classList.contains("deleteValid")) {
+    del.classList.add("deleteValid");
+  }
 }
 
 // add a new activity to the database
@@ -80,4 +87,15 @@ function addData() {
       alert("Incorrect password");
     }
   }
+}
+
+// delete an activity from the database
+function deleteDate() {
+  firebase.database().ref("activities/" + currentKeyword).remove()
+  .then(function() {
+    alert("Date removed successfully!")
+  })
+  .catch(function(error) {
+    alert("Remove failed: " + error.message)
+  });
 }
