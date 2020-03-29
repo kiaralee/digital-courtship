@@ -40,20 +40,27 @@ query.once("value")
   });
 });
 
+var prev = 99999999999;
 var currentKeyword = "";
+
 // displays a random activity
 function randActivity() {
   var r = Math.floor(Math.random() * all.length);
-  var del = document.getElementById("delete");
-  currentKeyword = all[r].keyword;
-  $('#dateTitle').animate({'opacity': 0}, 1500, function () {
-    $(this).html(all[r].title);
-  }).animate({'opacity': 1}, 1500);
-  $('#dateDes').animate({'opacity': 0}, 1500, function () {
-    $(this).html(all[r].description);
-  }).animate({'opacity': 1}, 1500);
-  if (!del.classList.contains("deleteValid")) {
-    del.classList.add("deleteValid");
+  if (r == prev) {
+    randActivity();
+  } else {
+    prev = r;
+    var del = document.getElementById("delete");
+    currentKeyword = all[r].keyword;
+    $('#dateTitle').animate({'opacity': 0}, 1500, function () {
+      $(this).html(all[r].title);
+    }).animate({'opacity': 1}, 1500);
+    $('#dateDes').animate({'opacity': 0}, 1500, function () {
+      $(this).html(all[r].description);
+    }).animate({'opacity': 1}, 1500);
+    if (!del.classList.contains("deleteValid")) {
+      del.classList.add("deleteValid");
+    }
   }
 }
 
