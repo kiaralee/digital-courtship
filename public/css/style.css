@@ -96,10 +96,22 @@ button {
   color: #fff;
   letter-spacing: 0.25em;
 }
-button:hover, button:focus {
+button.delete {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+button.deleteValid {
+  opacity: 1;
+  cursor: pointer;
+}
+button.deleteValid:hover, button:hover {
   opacity: 0.75;
+}
+button.delete:hover {
+  opacity: 0.55;
 }
 .left button {
   color: #202529;
   border-color: #202529;
+  margin-bottom: 1em;
 }
