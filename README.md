@@ -1,9 +1,7 @@
-# digital-courtship
-<b>a date generator for the digital age.</b>
+# Digital Courtship
+<b>A date generator for the digital age.</b>
 
-Maintaining and adapting your relationship and dating while self-isolating due to covid-19 is tricky. Digital Courtship is a web app designed to help solve that problem.
-
-Users can add and randomly generate a date from the database.
+Much like the mason jar full of date ideas, Digital Courtship is an online generator that allows users in a relationship to add and randomly generate a date idea from their shared database.
 
 ![digital courtship](https://raw.githubusercontent.com/kiaralee/digital-courtship/master/images/courtship-generate.png)
 
